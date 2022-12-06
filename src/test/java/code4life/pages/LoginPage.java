@@ -1,11 +1,13 @@
 package code4life.pages;
 
+import code4life.Base.PageBaseWait;
 import code4life.utilities.Driver;
 import org.openqa.selenium.By;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 
 import java.io.IOException;
 
-public class LoginPage {
+public class LoginPage  extends PageBaseWait {
 
 
 
@@ -15,6 +17,9 @@ public class LoginPage {
     By productLabel = By.xpath("//span[text()='Products']");
     By loginErrorText = By.xpath("//h3[text()='Epic sadface: Username and password do not match any user in this service']");
     By passwordLabel = By.xpath("//h4[text()='Password for all users:']");
+
+    public LoginPage() throws IOException {
+    }
 
 
     public String returnPasswordText() throws IOException {
@@ -47,6 +52,20 @@ public class LoginPage {
 
     public void clickLoginBtn() throws IOException {
         Driver.getDriver().findElement(loginBtn).click();
+    }
+
+    public void loginWithParameters(String uName, String pass) throws IOException {
+        wait.until(ExpectedConditions.visibilityOf(Driver.getDriver().
+                findElement(username))).sendKeys(uName);
+        wait.until(ExpectedConditions.visibilityOf(Driver.getDriver().
+                findElement(password))).sendKeys(pass);
+    }
+
+    public void loginWithParameters() throws IOException {
+        wait.until(ExpectedConditions.visibilityOf(Driver.getDriver().
+                findElement(username))).sendKeys();
+        wait.until(ExpectedConditions.visibilityOf(Driver.getDriver().
+                findElement(password))).sendKeys();
     }
 
 

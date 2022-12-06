@@ -44,4 +44,18 @@ public class LoginTest {
 
     }
 
+    @When("user enters {string} username and {string} password")
+    public void user_enters_username_and_password(String str1, String str2) throws IOException {
+       LoginPage page = new LoginPage();
+       page.loginWithParameters(str1, str2);
+    }
+
+
+
+
+    @Then("user verifies that the expected title is equal to the actual title")
+    public void user_verifies_that_the_expected_title_is_equal_to_the_actual_title() throws IOException {
+       Assert.assertEquals("Swag Labs", Driver.getDriver().getTitle());
+    }
+
 }

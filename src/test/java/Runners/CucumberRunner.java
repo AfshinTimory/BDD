@@ -13,7 +13,8 @@ import org.junit.runner.RunWith;
        // features = "src/test/resources/Features/cartFunctionality.feature",
         features = "src/test/resources/Features/login.feature",
 
-        dryRun = false
+        dryRun = false,
+        tags = "@form"
 
 
 
