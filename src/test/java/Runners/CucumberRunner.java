@@ -14,7 +14,11 @@ import org.junit.runner.RunWith;
         features = "src/test/resources/Features/login.feature",
 
         dryRun = false,
-        tags = "@form"
+        tags = "@scenario_outline",
+        plugin = {
+                "html:target/default-report",
+                "json:report/cucumber.json"
+        }
 
 
 

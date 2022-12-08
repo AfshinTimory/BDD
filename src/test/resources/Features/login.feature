@@ -40,3 +40,16 @@ Feature: login
       | email          | joe.biden@gmail.com                               |
       | currentAddress | 1600 Pennsylvania Avenue NW, Washington, DC 20500 |
       | permanentAdd   | 59 Carriage Road Clifton Park New York 12065      |
+@scenario_outline
+Scenario Outline: multiple logins
+  Given user is on the login
+  When user enter "<username>" username and "<password>" password
+  And user clicks the login button
+  Then the user should verify the visibility of the following "<text>"
+  Examples:
+    | username                | password     | text     |
+    | standard_user           | secret_sauce | PRODUCTS |
+    | problem_user            | secret_sauce | PRODUCTS |
+    | performance_glitch_user | secret_sauce | PRODUCTS |
+    | standard_user           | secret_sauce | PRODUCTS |
+
