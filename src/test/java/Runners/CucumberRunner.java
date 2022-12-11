@@ -16,7 +16,7 @@ import org.junit.runner.RunWith;
         dryRun = false,
         tags = "@scenario_outline",
         plugin = {
-                "html:target/default-report",
+                "html:report/default-report",
                 "json:report/cucumber.json"
         }
 
